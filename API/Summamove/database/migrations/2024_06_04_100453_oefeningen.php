@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id('id');
             $table->string('naam', 100);
             $table->string('beschrijving');
-            
             $table->string('foto');
         });
     }
