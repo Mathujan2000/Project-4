@@ -72,7 +72,6 @@ class OefeningController extends Controller
         $validator = Validator::make($request->all(), [
             'naam' => 'required|string|max:255',
             'beschrijving' => 'required|string|max:255',
-            'foto' => 'required|integer|min:1900|max:',
         ]);
 
         if ($validator->fails()) {
