@@ -8,8 +8,8 @@ class HomePage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(
-              'https://www.windows-helpdesk.nl/wp-content/uploads/2021/04/Windowsgebruikers-account-aanmaken.png'  // Vervang dit door de URL van je afbeelding
+          image: AssetImage(
+            'lib/assets/images/logo.PNG',
           ),
           fit: BoxFit.cover,
         ),
@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
         child: Text(
           'Summa Move',
           style: TextStyle(
-              color: Colors.purple,
+              color: Colors.green,
               fontSize: 60,
               fontWeight: FontWeight.bold
           ),
