@@ -15,11 +15,11 @@ class AboutPage extends StatelessWidget {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('lib/assets/images/fitness.jpg'),
+            image: NetworkImage('https://img.freepik.com/free-photo/woman-helping-man-gym_23-2149627070.jpg'),
             fit: BoxFit.cover,
           ),
         ),
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,12 +36,12 @@ class AboutPage extends StatelessWidget {
                     Text(
                       'Over ons!',
                       style: TextStyle(
-                        fontSize: 28,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Colors.teal,
                       ),
                     ),
-                    SizedBox(height: 16),
+                    SizedBox(height: 8),
                     Text(
                       'Welkom bij SummaMove, de plek waar sport, beweging en plezier samenkomen! Wij zijn gepassioneerd over het bevorderen van een gezonde en actieve levensstijl voor iedereen. Of je nu een doorgewinterde atleet bent of net begint met sporten, bij SummaMove vind je activiteiten die perfect bij jou passen.',
                       style: TextStyle(fontSize: 16, height: 1.5),
@@ -53,7 +53,7 @@ class AboutPage extends StatelessWidget {
                     ),
                     SizedBox(height: 8),
                     Text(
-                      'Bij SummaMove geloven we in de kracht van gemeenschap en samen sporten. Daarom organiseren we regelmatig sportevenementen en sociale activiteiten om een sterke, ondersteunende en motiverende omgeving te creëren. Hier maak je nieuwe vrienden, deel je successen en geniet je samen van de voordelen van een actieve levensstijl.',
+                      'Bij SummaMove geloven we in de kracht van gemeenschap en samen sporten. Daarom organiseren we regelmatig sportevenementen en sociale activiteiten om een sterke, ondersteunende en motiverende omgeving te creÃ«ren. Hier maak je nieuwe vrienden, deel je successen en geniet je samen van de voordelen van een actieve levensstijl.',
                       style: TextStyle(fontSize: 16, height: 1.5),
                     ),
                     SizedBox(height: 8),
