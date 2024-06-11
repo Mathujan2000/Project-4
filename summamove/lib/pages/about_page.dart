@@ -19,6 +19,7 @@ class AboutPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -60,6 +61,7 @@ class AboutPage extends StatelessWidget {
                     Text(
                       'Kom en ontdek de vele mogelijkheden bij SummaMove. Laat je inspireren, blijf gemotiveerd en beweeg mee met ons!',
                       style: TextStyle(fontSize: 16, height: 1.5),
+                      fghf
                     ),
                   ],
                 ),
