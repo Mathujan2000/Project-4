@@ -3,6 +3,8 @@ import '../models/oefeningen.dart';
 import '../services/oefeningen_services.dart';
 
 class OefeningenIndexPage extends StatefulWidget {
+  const OefeningenIndexPage({super.key});
+
   @override
   _OefeningenIndexPageState createState() => _OefeningenIndexPageState();
 }
@@ -21,6 +23,7 @@ class _OefeningenIndexPageState extends State<OefeningenIndexPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Oefeningen - Index'),
+        backgroundColor: Colors.teal,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -66,10 +69,11 @@ class _OefeningenIndexPageState extends State<OefeningenIndexPage> {
               backgroundImage: NetworkImage(data[index].foto),
             ),
             title: Text(data[index].naam),
-            trailing: Text(data[index].beschrijving),
+            subtitle: Text(data[index]
+                .beschrijving), // Use subtitle instead of trailing for the description
           ),
         );
       },
     );
   }
-}
+  }

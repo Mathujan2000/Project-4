@@ -8,8 +8,8 @@ class HomePage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(
-              'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg-DStVrr8B5_I6XOwKF4ld6tB1nriAT6kUg&s'  // Vervang dit door de URL van je afbeelding
+          image: AssetImage(
+              'lib/assets/images/logo-1861420_1280.jpg'  // Vervang dit door de URL van je afbeelding
           ),
           fit: BoxFit.cover,
         ),
@@ -27,6 +27,7 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
 
 void main() {
   runApp(const MaterialApp(

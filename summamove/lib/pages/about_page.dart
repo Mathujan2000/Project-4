@@ -61,7 +61,6 @@ class AboutPage extends StatelessWidget {
                     Text(
                       'Kom en ontdek de vele mogelijkheden bij SummaMove. Laat je inspireren, blijf gemotiveerd en beweeg mee met ons!',
                       style: TextStyle(fontSize: 16, height: 1.5),
-                      fghf
                     ),
                   ],
                 ),
