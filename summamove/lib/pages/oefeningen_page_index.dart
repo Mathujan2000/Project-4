@@ -23,7 +23,7 @@ class _OefeningenIndexPageState extends State<OefeningenIndexPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Oefeningen - Index'),
+        title: Text('Oefeningen'),
         backgroundColor: Colors.teal,
       ),
       body: Container(
