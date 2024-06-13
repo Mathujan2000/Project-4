@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
             tabs: [
               Tab(icon: Icon(Icons.home), text: 'Home'),
               Tab(icon: Icon(Icons.fitness_center_outlined), text: 'Oefeningen'),
-              Tab(icon: Icon(Icons.people), text: "About us")
+              Tab(icon: Icon(Icons.people), text: "Over ons")
             ],
           ),
         ),

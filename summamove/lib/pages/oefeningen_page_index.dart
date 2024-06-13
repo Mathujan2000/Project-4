@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/oefeningen.dart';
 import '../services/oefeningen_services.dart';
+import 'oefening_details.dart';
 
 class OefeningenIndexPage extends StatefulWidget {
   const OefeningenIndexPage({super.key});
@@ -65,15 +66,22 @@ class _OefeningenIndexPageState extends State<OefeningenIndexPage> {
       itemBuilder: (context, index) {
         return Card(
           child: ListTile(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => OefeningDetailsPage(oefening: data[index]),
+                ),
+              );
+            },
             leading: CircleAvatar(
               backgroundImage: NetworkImage(data[index].foto),
             ),
             title: Text(data[index].naam),
-            subtitle: Text(data[index]
-                .beschrijving), // Use subtitle instead of trailing for the description
+            subtitle: Text(data[index].beschrijving),
           ),
         );
       },
     );
   }
-  }
+}

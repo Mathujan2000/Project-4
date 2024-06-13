@@ -5,24 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oefeningen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2;
+            background-color: #f8f9fa;
+            color: #495057; /* Dark gray for text */
         }
 
         header {
-            background-color: #333;
+            background-color: teal;
             color: #fff;
             padding: 20px;
-            text-align: center;
+            text-align: center; /* Center align text */
+            display: flex;
+            justify-content: center; /* Center align items horizontally */
+            align-items: center;
+        }
+
+        h1 {
+            font-weight: bold;
+            color: black;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 30px;
         }
 
         main {
             margin: 20px;
-            padding: 50px;
+            padding: 80px;
+            background-color: gold;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
 
         table {
@@ -30,6 +53,8 @@
             border-collapse: collapse;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         th,
@@ -40,12 +65,12 @@
         }
 
         th {
-            background-color: #333;
+            background-color: #343a40;
             color: #fff;
         }
 
         tr:hover {
-            background-color: #f5f5f5;
+            background-color: #f1f1f1;
         }
 
         .modal {
@@ -58,15 +83,19 @@
             height: 100%;
             overflow: auto;
             background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
         }
 
         .modal-content {
             background-color: #fefefe;
-            margin: 15% auto;
+            margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
+            max-width: 600px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 8px;
             animation-name: modalopen;
             animation-duration: 0.4s;
         }
@@ -86,17 +115,17 @@
             float: right;
             font-size: 28px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         .close:hover,
         .close:focus {
             color: black;
             text-decoration: none;
-            cursor: pointer;
         }
 
         footer {
-            background-color: #333;
+            background-color: #343a40;
             color: #fff;
             text-align: center;
             padding: 10px;
@@ -104,13 +133,70 @@
             bottom: 0;
             width: 100%;
         }
+
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 18px;
+        }
+
+        .icon-button.edit {
+            color: #28a745;
+        }
+
+        .icon-button.delete {
+            color: #dc3545;
+        }
+
+        textarea,
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        textarea:focus,
+        input[type="text"]:focus {
+            border-color: #28a745;
+            outline: none;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
     </style>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body onload="laad();">
 <header>
-    <h1>Oefeningen</h1>
+    <div class="logo">
+        <img src="../../public/logo-1861420_1280.jpg"/>
+        <h1>SummaMove</h1>
+    </div>
 </header>
 <main>
     <table>
@@ -169,7 +255,7 @@
         let tabelInhoud = '';
         if (Array.isArray(oefeningen)) {
             oefeningen.forEach(el => {
-                tabelInhoud += `<tr><td>${el.naam}</td><td>${el.beschrijving}</td><td><button onclick="openModal(${el.id})">Bewerk</button><button onclick="verwijder(${el.id})">Verwijder</button></td></tr>`;
+                tabelInhoud += `<tr><td>${el.naam}</td><td>${el.beschrijving}</td><td><button class="icon-button edit" onclick="openModal(${el.id})"><i class="fas fa-pencil-alt"></i></button><button class="icon-button delete" onclick="verwijder(${el.id})"><i class="fas fa-trash-alt"></i></button></td></tr>`;
             });
         } else {
             console.error('Oefeningen is not an array:', oefeningen);
@@ -182,7 +268,6 @@
         if (entry) {
             document.getElementById('editNaam').value = entry.naam;
             document.getElementById('editBeschrijving').value = entry.beschrijving;
-            document.getElementById('editModal').style.display = 'block';
         } else {
             console.error('Entry not found with ID:', id);
         }
@@ -225,8 +310,9 @@
     };
 
     const openModal = (id) => {
-        edit(id);
+        edit(id); // Fetch and set data
         document.getElementById('editForm').dataset.id = id; // Store the ID in the form dataset
+        document.getElementById('editModal').style.display = 'flex'; // Display the modal
     };
 
     const closeModal = () => {
@@ -234,4 +320,6 @@
     };
 </script>
 </body>
+
 </html>
+
